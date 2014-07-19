@@ -45,7 +45,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('images', function() {
-  return gulp.src('app/assets/images/**/*')
+  return gulp.src('app/assets/images/**')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('public/assets/images/'));
 });
@@ -75,7 +75,7 @@ gulp.task('dev', function () {
     config.env = 'dev';
     gulp.watch('app/assets/sass/**/*.scss', ['styles']);
     gulp.watch('app/assets/js/**/*.js', ['scripts']);
-    gulp.watch('app/assets/images/**/*', ['images']);
+    gulp.watch('app/assets/images/**', ['images']);
     gulp.watch('app/assets/fonts/**/*', ['fonts']);
     gulp.watch('app/assets/vendor/*.js', ['vendor']);
 });
