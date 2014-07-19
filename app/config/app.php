@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
+	'debug' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -128,7 +128,9 @@ return array(
 	    'Dude\Poster\PosterServiceProvider',
 	    'Dude\Validators\ValidatorsServiceProvider',
 	    'Dude\Uploader\UploaderServiceProvider',
-	    'Dude\Hasher\HasherServiceProvider'
+	    'Dude\Hasher\HasherServiceProvider',
+
+	    'Barryvdh\Debugbar\ServiceProvider'
 
 	),
 
