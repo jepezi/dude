@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('feed', array('as' => 'feed', 'uses' => 'FeedController@index'));
+
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 Route::get('link/{hash_id}', array('as' => 'click.to', 'uses' => 'ClickController@to'));
 

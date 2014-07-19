@@ -50,6 +50,12 @@ class EloquentPostRepository extends AbstractRepository implements Repository, P
     return $model->url;
   }
 
+  public function getFeed()
+  {
+    $posts = $this->model->orderBy('created_at', 'desc')->take(10)->get();
+    return $posts;
+  }
+
 
 
 }

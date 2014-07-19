@@ -7,7 +7,8 @@
 		"laravel/framework": "4.2.*",
 		"barryvdh/laravel-debugbar": "dev-master",
 		"intervention/image": "2.*",
-		"hashids/hashids": "dev-master"
+		"hashids/hashids": "dev-master",
+		"roumen/feed": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

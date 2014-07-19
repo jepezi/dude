@@ -130,7 +130,8 @@ return array(
 	    'Dude\Uploader\UploaderServiceProvider',
 	    'Dude\Hasher\HasherServiceProvider',
 
-	    'Barryvdh\Debugbar\ServiceProvider'
+	    'Barryvdh\Debugbar\ServiceProvider',
+	    'Roumen\Feed\FeedServiceProvider',
 
 	),
 
@@ -201,6 +202,8 @@ return array(
 
 		'Image' => 'Intervention\Image\Facades\Image',
 		'Debugbar' => 'Barryvdh\Debugbar\Facade',
+
+		'Feed' => 'Roumen\Feed\Facades\Feed',
 
 	),
 
