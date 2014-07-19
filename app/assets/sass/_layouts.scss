@@ -1,0 +1,140 @@
+$sidebar_width: 30%;
+$header_height: 60px;
+$color_brand: #423e48;
+$pad: 60px;
+$pad_sm: 20px;
+
+h1,h2,h3,h4,h5,h6 {
+	margin-top: 0;
+}
+
+.inset {
+  padding: $pad;
+  @media (max-width: $grid-float-breakpoint-max) {
+  	padding: $pad_sm;
+  }
+}
+
+p, div {
+	word-wrap:break-word;
+}
+
+.content-header {
+	position: fixed;
+	top: 0;
+	height: $header_height;
+	background-color: $color_brand;
+	color: white;
+	width: 100%;
+	z-index: 2000;
+	h1 {
+		line-height: $header_height;
+		margin-left: $pad;
+		font-size: 24px;
+	}
+	@media (max-width: $grid-float-breakpoint-max) {
+		#wrapper.active & {
+			left: $sidebar_width;
+		}
+		h1 {
+			margin-left: $pad_sm;
+		}
+	}
+}
+
+#wrapper {
+	padding-left: $sidebar_width;
+	transition: all 0.4s ease 0s;
+
+	@media (max-width: $grid-float-breakpoint-max) {
+		padding-left: 0;
+		&.active {
+		  position: relative;
+		  left: $sidebar_width;
+		}
+	}
+}
+
+#wrapper.active #sidebar-wrapper {
+  left: $sidebar_width;
+  width: $sidebar_width;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+	margin-left: -$sidebar_width;
+	left: $sidebar_width;
+	width: $sidebar_width;
+	background: $color_brand;
+	position: fixed;
+	height: 100%;
+	overflow-y: auto;
+	z-index: 1000;
+	transition: all 0.4s ease 0s;
+	@media (max-width: $grid-float-breakpoint-max) {
+		left: 0;
+		#wrapper.active & {
+			left: $sidebar_width;
+			width: $sidebar_width;
+			transition: all 0.4s ease 0s;
+		}
+	}
+}
+
+#menu-toggle {
+  display: none;
+  @media (max-width: $grid-float-breakpoint-max) {
+  	display: inline-block;
+  }
+}
+
+#page-content-wrapper {
+	width: 100%;
+	padding-top: 0;
+	@media (max-width: $grid-float-breakpoint-max) {
+		padding-top: $header_height;
+	}
+}
+
+.sidebar-content {
+	@include scut-center-transform;
+	color: white;
+	text-align: center;
+	width: 100%;
+	small {
+		display: block;
+		padding-top: 14px;
+		font-family: $fontBrandLight;
+		font-size: 14px;
+	}
+}
+.about-dude-panel {
+	width: 65%;
+	margin: 20px auto 30px auto;
+	font-size: 16px;
+	color: darken(white, 20%);
+	font-family: $fontRegular;
+	font-size: 12px;
+	letter-spacing: 0;
+	line-height: 1.5;
+}
+.subscribe {
+	margin-top: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	small {
+		font-family: $fontRegular;
+		font-size: 11px;
+		letter-spacing: 0;
+	}
+}
+.logo-graphic {
+	margin-bottom: 40px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

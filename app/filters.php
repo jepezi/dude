@@ -70,6 +70,15 @@ Route::filter('guest', function()
 	if (Auth::check()) return Redirect::to('/');
 });
 
+Route::filter('ajax', function()
+{
+        // Check ajax req
+        if ( ! Request::ajax())
+        {
+            App::abort(403);
+        }
+});
+
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter
