@@ -48,7 +48,7 @@
 				p_images = $('link[rel="image_src"]').attr('href');
 			}
 			// var p_images = $('meta[property="og:image"]').attr('content');
-			location.href="http://dudedb.com/admin/post/createLinkFromBookmarklet?url="+
+			location.href="http://dude.app:8000//admin/post/createLinkFromBookmarklet?url="+
 								encodeURIComponent(p_url)+
 								"&p_title="+encodeURIComponent(p_title)+
 								"&p_description="+encodeURIComponent(p_description)+
