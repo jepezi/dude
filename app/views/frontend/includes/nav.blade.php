@@ -38,6 +38,7 @@
     
     <!-- Begin MailChimp Signup Form -->
     <!-- <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css"> -->
+    @if (App::environment('local'))
     <div id="mc_embed_signup" class="subscribe">
         <small>ไม่อยากเช็คเว็บไซต์ ให้เราส่งเรื่องเด็ดเข้าเมล์แทน กรอกเมล์เลย</small> 
     <form action="//dudedb.us8.list-manage.com/subscribe/post?u=dfdeae7c79940d651802c408e&amp;id=5b71df7024" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -48,10 +49,11 @@
         <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-default btn-sm"></div>
     </form> 
     </div>
+    @endif
 
     <!--End mc_embed_signup-->
 
     <div class="telldude">
-        <a href="#" class="telldude-link">มีลิ้งค์เด็ด แชร์แอดมินที่นี่</a>
+        <a href="{{ URL::route('tell') }}" class="telldude-link">มีลิ้งค์เด็ด แชร์แอดมินที่นี่</a>
         </div>
 </div>

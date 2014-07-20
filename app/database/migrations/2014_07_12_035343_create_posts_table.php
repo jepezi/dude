@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration {
 
       		$table->text('caption')->nullable();
       		
-      		$table->string('url')->nullable();
+      		$table->text('url')->nullable();
       		
       		//preview
       		$table->string('p_title')->nullable();

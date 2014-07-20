@@ -2,11 +2,14 @@
 
 use Post;
 use Genre;
+use Gossip;
 use Illuminate\Support\ServiceProvider;
 use Dude\Repositories\Post\PostCreateValidator;
 use Dude\Repositories\Post\EloquentPostRepository;
 use Dude\Repositories\Genre\GenreCreateValidator;
 use Dude\Repositories\Genre\EloquentGenreRepository;
+use Dude\Repositories\Gossip\GossipCreateValidator;
+use Dude\Repositories\Gossip\EloquentGossipRepository;
 
 class RepositoryServiceProvider extends ServiceProvider {
 
@@ -17,8 +20,19 @@ class RepositoryServiceProvider extends ServiceProvider {
   {
     $this->registerPostRepository();
     $this->registerGenreRepository();
+    $this->registerGossipRepository();
   }
 
+  public function registerGossipRepository()
+  {
+    $this->app->bind('Dude\Repositories\Gossip\GossipRepository', function($app)
+    {
+      $repository = new EloquentGossipRepository( new Gossip );
+      $repository->registerValidator('create', new GossipCreateValidator($app['validator']));
+
+      return $repository;
+    });
+  }
 
   public function registerGenreRepository()
   {
