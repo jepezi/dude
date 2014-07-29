@@ -8,7 +8,8 @@
 		"barryvdh/laravel-debugbar": "dev-master",
 		"intervention/image": "2.*",
 		"hashids/hashids": "dev-master",
-		"roumen/feed": "dev-master"
+		"roumen/feed": "dev-master",
+		"league/oauth2-client": "~0.3"
 	},
 	"autoload": {
 		"classmap": [

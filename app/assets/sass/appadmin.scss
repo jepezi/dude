@@ -4,18 +4,8 @@
 @include scut-font-face("RSURegular", "../fonts/RSU_regular");
 @include scut-font-face("RSUBold", "../fonts/RSU_bold");
 @include scut-font-face("RSULight", "../fonts/RSU_light");
-$fontLight: "RSULight", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$fontRegular: "RSURegular", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$fontBold: "RSUBold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-/*
-|--------------------------------------------------------------------------
-| Overwrite Bootstraps Variables
-|--------------------------------------------------------------------------
-|
-|
-|
-*/
-$brand-primary: #caac42;
+
+@import 'vars';
 
 // Bootstrap custom
 @import '../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap-custom';
@@ -25,12 +15,9 @@ body {
 	padding-top: 0;
 	width: 70%;
 	margin: 0 auto;
-	background-color: #f5f5fa;
 }
 
-.post {
-	background-color: white;
-}
+@import 'post';
 
 /* ---------------- post from bookmark ---------------- */
 .preview_image_bookmark {

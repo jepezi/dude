@@ -4,21 +4,9 @@
 @include scut-font-face("RSURegular", "../fonts/RSU_regular");
 @include scut-font-face("RSUBold", "../fonts/RSU_bold");
 @include scut-font-face("RSULight", "../fonts/RSU_light");
-$fontBrandLight: "RSULight", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$fontBrandRegular: "RSURegular", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$fontBrandBold: "RSUBold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 
-$fontRegular: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-/*
-|--------------------------------------------------------------------------
-| Overwrite Bootstraps Variables
-|--------------------------------------------------------------------------
-|
-|
-|
-*/
-$brand-primary: #000;
-$font-size-base: 20px;
+@import 'vars';
+
 
 // Bootstrap custom
 @import '../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap-custom';
@@ -29,141 +17,18 @@ body {
 	margin: 0 auto;
 	background-color: white;
 	font-family: $fontBrandRegular;
+  .full & {
+    background: none;
+  }
   // font-size: 24px;
 }
 
 
 @import 'layouts';
+@import 'post';
 
+@import 'page_comeonin';
 
-/* ---------------- post from bookmark ---------------- */
-
-// var
-$space_icon: $pad + 22;
-$vspace_icon: 44px;
-$size_icon_genre: 42px;
-$vspace_icon_genre: 48px;
-$hspace_icon_genre: 48px;
-$space_between_post: 34px;
-
-// preview
-/*
-<div class="preview-link">
-            <div class="_img">
-              <img src="{{ $post->p_images }}" alt="">
-              </div>
-            <div class="_meta">
-              <div class="__headline">
-                <div class="___title">{{ $post->p_title }}</div>
-                <div class="___url">{{ $post->url }}</div>
-                </div>
-              <div class="__description">
-                {{ $post->p_description }}
-                </div>
-              </div>
-            </div>
-*/
-.preview-link {
-  margin-top: 24px;
-  width: 80%;
-  border: 1px solid #ccc;
-  position: relative;
-  height: 120px;
-  overflow: hidden;
-  a:link {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  ._img {
-    position: absolute; top: 0; left: 0;
-    width: 120px;
-    img {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-  ._meta {
-    margin-left: 120px;
-    padding: 8px 15px 0 15px;
-    font-size: 12px;
-    font-family: $fontRegular;
-    .___title {
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    .___url {
-      font-size: 11px;
-      line-height: 1.2;
-      color: #aaa;
-    }
-    .__description {
-      margin-top: 12px;
-    }
-  }
-  @media (max-width: $grid-float-breakpoint-max) {
-    width: 100%;
-  }
-}
-
-
-// post
-.post {
-  position: relative;
-  margin-top: 0;
-  padding-bottom: $space_between_post;
-  padding-top: $space_between_post;
-  border-bottom: 1px solid #e2e2e2;
-	h3 {
-    display: inline;
-  }
-  .date {
-    color: #ccc;
-  }
-  p.summary {
-    display: inline;
-    color: #888888;
-    font-family: $fontRegular;
-  }
-  ._type {
-    position: absolute;
-    top: $space_between_post;
-    left: -$space_icon;
-    z-index: 1000;
-    @media (max-width: $grid-float-breakpoint-max) {
-      left: 0;
-      top: -$vspace_icon;
-    }
-  }
-  ._genres {
-    list-style: none;
-    margin: 0; padding: 0;
-    position: absolute;
-    top: $vspace_icon_genre+$space_between_post;
-    left: -$space_icon;
-    z-index: 1001;
-    li {
-      width: $size_icon_genre;
-      height: $size_icon_genre;
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: $size_icon_genre;
-      }
-    }
-    @media (max-width: $grid-float-breakpoint-max) {
-      left: $hspace_icon_genre;
-      top: -$vspace_icon;
-      li {
-        display: inline-block;
-      }
-    }
-  }
-  @media (max-width: $grid-float-breakpoint-max) {
-    margin-top: $vspace_icon;
-  }
-}
 
 .telldude {
   margin-top: 30px;

@@ -5,6 +5,7 @@ use Genre;
 use Gossip;
 use Illuminate\Support\ServiceProvider;
 use Dude\Repositories\Post\PostCreateValidator;
+use Dude\Repositories\Post\PostUpdateValidator;
 use Dude\Repositories\Post\EloquentPostRepository;
 use Dude\Repositories\Genre\GenreCreateValidator;
 use Dude\Repositories\Genre\EloquentGenreRepository;
@@ -51,6 +52,7 @@ class RepositoryServiceProvider extends ServiceProvider {
     {
       $repository = new EloquentPostRepository( new Post );
       $repository->registerValidator('create', new PostCreateValidator($app['validator']));
+      $repository->registerValidator('update', new PostUpdateValidator($app['validator']));
 
       return $repository;
     });

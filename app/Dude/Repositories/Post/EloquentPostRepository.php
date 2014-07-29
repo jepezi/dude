@@ -26,6 +26,32 @@ class EloquentPostRepository extends AbstractRepository implements Repository, P
     $this->model = $model;
   }
 
+  public function update(array $data)
+  {
+    if($this->isValid('update', $data))
+    {
+      $post = $this->find($data['id']);
+      $post->title = $data['title'];
+      $post->slug = $data['slug'];
+      $post->caption = $data['caption'];
+      $post->type = $data['type'];
+      $post->url = $data['url'];
+      $post->p_title = $data['p_title'];
+      $post->p_description = $data['p_description'];
+      $post->p_images = $data['p_images'];
+
+      if(count($post->getDirty()) > 0)
+      {
+        $post->save();
+      }
+      
+      $genres = isset($data['genres'])?$data['genres']:false;
+      if($genres) $post->genres()->sync($genres);
+      
+      return $post;
+    }
+  }
+
   /**
    * Create
    *
@@ -55,7 +81,6 @@ class EloquentPostRepository extends AbstractRepository implements Repository, P
     $posts = $this->model->orderBy('created_at', 'desc')->take(10)->get();
     return $posts;
   }
-
 
 
 }

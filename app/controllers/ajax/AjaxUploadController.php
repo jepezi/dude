@@ -10,6 +10,26 @@ class AjaxUploadController extends \AjaxBaseController
     {
         parent::__construct();
         $this->uploader = $uploader;
+        \Debugbar::info('construct');
+    }
+
+    
+    public function uploadAndSaveImagePostLink()
+    {
+        \Debugbar::info('yay');
+        if(Input::hasFile('files')){
+
+            $result = $this->uploader->upload(Input::file('files'), '/uploads/post_links');
+
+            if(!empty($result))
+            {
+                return [
+                    'files' => $result
+                ];
+            } else {
+                return Response::json(array('error' => 'Something went wrong'), 500);
+            }
+        }
     }
 
     public function uploadAndSaveIcon()

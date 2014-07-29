@@ -109,6 +109,7 @@ abstract class AbstractRepository {
     $query = $this->make($with);
 
     $users = $query->skip($limit * ($page - 1))
+                  ->orderBy('created_at','desc')
                    ->take($limit)
                    ->get();
 

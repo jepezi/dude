@@ -1,8 +1,4 @@
-$sidebar_width: 30%;
-$header_height: 60px;
-$color_brand: #423e48;
-$pad: 60px;
-$pad_sm: 20px;
+@import 'vars';
 
 h1,h2,h3,h4,h5,h6 {
 	margin-top: 0;
@@ -34,7 +30,7 @@ p, div {
 	}
 	@media (max-width: $grid-float-breakpoint-max) {
 		#wrapper.active & {
-			left: $sidebar_width;
+			left: $sidebar_width_sm;
 		}
 		h1 {
 			margin-left: $pad_sm;
@@ -50,7 +46,7 @@ p, div {
 		padding-left: 0;
 		&.active {
 		  position: relative;
-		  left: $sidebar_width;
+		  left: $sidebar_width_sm;
 		}
 	}
 }
@@ -75,7 +71,7 @@ p, div {
 		left: 0;
 		#wrapper.active & {
 			left: $sidebar_width;
-			width: $sidebar_width;
+			width: $sidebar_width_sm;
 			transition: all 0.4s ease 0s;
 		}
 	}
@@ -125,11 +121,11 @@ p, div {
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	color: black;
 	small {
 		font-family: $fontRegular;
 		font-size: 11px;
 		letter-spacing: 0;
+		margin-bottom: 4px;
 	}
 }
 .logo-graphic {

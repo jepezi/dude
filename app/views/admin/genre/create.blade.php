@@ -7,8 +7,8 @@
 
 
 @section('content')
-@include('admin.includes.noti')
 @include('admin.includes.menu')
+@include('admin.includes.noti')
 <h1>Create Genre</h1>
 {{ Form::open(['route' => 'admin.genre.store', 'files' => true]) }}
 				<div class="form-group">

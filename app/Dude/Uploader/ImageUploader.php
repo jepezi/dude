@@ -3,6 +3,7 @@
 use Illuminate\Support\Str;
 use Response;
 use Image;
+use File;
 
 class ImageUploader extends AbstractUploader implements Uploader {
 
@@ -57,19 +58,25 @@ class ImageUploader extends AbstractUploader implements Uploader {
 
     return $name;
   }
+
   public function upload(array $data, $path)
   {
     foreach($data as $file) {
 
       if($this->runValidationChecks(array('file'=> $file)))
       {
-        $assetPath = $path;
-        $uploadPath = public_path($assetPath);
+        $uploadPath = public_path($path);
         $result = array();
 
         $filename = Str::random(20).'.'.$file->getClientOriginalExtension();
+        
+        while(File::exists($uploadPath . '/' . $filename)) 
+        {
+          $filename = Str::random(20).'.'.$file->getClientOriginalExtension();
+        }
+        
         $file->move($uploadPath, $filename);
-        $name = $assetPath . '/' . $filename;
+        $name = $path . '/' . $filename;
         $result[] = compact('name');
 
         return $result;

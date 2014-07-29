@@ -1,0 +1,30 @@
+.comeon {
+	color: white;
+}
+.comeon-logo {
+	@extend .center-block;
+	margin-top: 60px;
+	width: 56%;
+	font-size: 16px;
+	@media (max-width: $grid-float-breakpoint-max) {
+		width: 85%;
+	}
+	h1 {
+		font-size: 24px;
+		margin-top: 12px;
+		margin-bottom: 20px;
+	}
+}
+.cta {
+	margin-top: 40px;
+}
+.remark-button {
+	font-family: $fontRegular;
+	font-size: 12px;
+	margin-top: 10px;
+	opacity: .85;
+}
+.full {
+    background: url('/assets/images/covercomeonin.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
